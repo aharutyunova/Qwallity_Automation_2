@@ -13,9 +13,8 @@ from Tests.some_helpers import TESTHelpers
 
 1. Login to the system
 2. Go to Electronics page
-3. Add random number of products as a favorite
-4. Go to My Account-> Favorite Ads
-5. Check that Favorite page contains correct(selected) products
+3. Try add random item as favorite
+4. System show popup for required login
 
 """
 
