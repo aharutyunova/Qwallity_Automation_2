@@ -1,1 +1,1 @@
-# Qwallity_Automation_2
+# UI_Automation_Exam
