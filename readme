@@ -1,10 +1,18 @@
+This is a project to automate tests of list.am website.
+Here is a short description for each folder:
+    Helpers - In which all necessary helpers are described with loggers inside them. 
+    Pages -  In which all necessary xpaths and methods to work those xpaths are written
+    Tests - In which the following two test scenarios are covered: 
+            Scenario 1
+                1. Navigate to list.am
+                2. Search by the word "house"
+                3. Filter by Currency with USD and Price with 0-50 $
+                4. Click on the blue icon
+                5. Check that result's prices are within the filtered range
 
-We have 2 test cases, one need to search per criteria, second should check favorites.
+            Scenario 2
+                1. Navigate to list.am
+                2. Try add random item as favorite
+                3. System show popup for required login
 
-We keep pep8 standartd
-We are using POM and distributed 4 pages - favorite, header, login, menu, result
-
-we are keeping logger, driver should be kept in contest
-
-all environment crenedntails
-
+To run this project use command pytest <filename> or just pytest
