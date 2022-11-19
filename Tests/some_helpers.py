@@ -36,6 +36,6 @@ class TESTHelpers(ResultPage, LoginPage, HeaderPage):
     def login_page(self):
         self.login()
 
-    def enter_logo_and_menu_tab(self):
-        self.click_on_logo()
-        self.click_menu_tab()
+    # def enter_logo_and_menu_tab(self):
+    #     self.click_on_logo()
+    #     self.click_menu_tab()
