@@ -6,7 +6,7 @@ logging.basicConfig(filename='test_run.txt',
                     )
 
 
-def logger(msg="", error=False):
+def logger(msg="Success", error=False):
     if error:
         logging.error(msg)
     else:

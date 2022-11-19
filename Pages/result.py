@@ -1,21 +1,23 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_condition
 from Helpers.helpers import GeneralHelpers
 import random
 
 result_container = (By.XPATH, "/html/body/div[3]/div[3]/div[2]")
 ddl_currency = (By.XPATH, "//*[text()='Currency']//following::div[@class='me']")
 usd_price = (By.XPATH, "//div[text()='$ (USD)']")
-from_price = (By.ID, "idprice1")
+from_price = (By.ID, "//*[@id='idprice1']")
 favorite_items = (By.XPATH, "//div[@id='contentr']//a")
-to_price = (By.ID, "idprice2")
-price_blue_button = (By.ID, "gobtn")
+to_price = (By.ID, "//*[@id='idprice2']")
+price_blue_button = (By.ID, "//*[@id='gobtn']")
 result_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
 result_price = (By.XPATH, "//div[@id='contentr']//a//div[@class='p']")
 contentr_items = (By.XPATH, "//div[@id='contentr']//a")
-
-
 add_to_favorite = (By.XPATH, "//div[@id='sstar']//div")
 login_require_popup = (By.XPATH, "//a[text()='Login to List.am']")
+
+
 
 class ResultPage(GeneralHelpers):
 

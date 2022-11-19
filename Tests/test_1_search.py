@@ -2,9 +2,9 @@ from Helpers.helpers import GeneralHelpers
 from Pages.header import HeaderPage
 from Pages.result import ResultPage
 from Helpers import environment
-from Helpers.test_logger import logger
+from Helpers.logger import logger
 from TestData import testdata
-from Tests.some_helpers import TESTHelpers
+from Helpers.some_helpers import TESTHelpers
 
 """
 1. Navigate to lits.am

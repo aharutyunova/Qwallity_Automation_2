@@ -1,10 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from werkzeug.debug.repr import helper
-
 from Helpers import environment
 from Helpers.helpers import GeneralHelpers
-from Helpers.test_logger import logger
+from Helpers.logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 from Pages.header import HeaderPage
 from Pages.login import LoginPage
@@ -27,7 +25,7 @@ class TESTHelpers(ResultPage, LoginPage, HeaderPage):
             assert 0 <= price <= 50, logger("Result is incorrect", error=True)
         logger("Result is correct!")
 
-        return self
+        return self.price_list
 
     def change_to_and_click(self):
         self.change_english()

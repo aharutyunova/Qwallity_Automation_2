@@ -1,15 +1,13 @@
 import pytest
-from selenium import webdriver
 import logging
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 @pytest.fixture
-def driver():
-    driver = webdriver.Chrome(executable_path='C:/Qwallity/Lesson24/chromedriver.exe')
-    yield driver
-    driver.quit()
-
-
-
+def get_driver():
+    '''Here is represented a method to get driver'''
+    return webdriver.Chrome(ChromeDriverManager().install())
 
 
 @pytest.fixture
