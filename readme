@@ -1,10 +1,7 @@
+## We have 2 test cases, one need to search per criteria, second should check favorites.
 
-We have 2 test cases, one need to search per criteria, second should check favorites.
+## We are using POM and distributed 4 pages - favorite, header, login, menu, result
 
-We keep pep8 standartd
-We are using POM and distributed 4 pages - favorite, header, login, menu, result
+## We are keeping logger, driver should be kept in contest
 
-we are keeping logger, driver should be kept in contest
-
-all environment crenedntails
-
+# Gohar :)
