@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_condition
+from selenium.webdriver.support import expected_conditions
 from Helpers.helpers import GeneralHelpers
 import random
 

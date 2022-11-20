@@ -9,6 +9,11 @@ from Pages.login import LoginPage
 from Pages.result import ResultPage
 from TestData import testdata
 
+
+# Anna Comments - you don't have environment in helper, logger in Helpers.logger,
+# login in Pages, so you can not import them
+
+# Tis file for login is not necessary, and in heplers you never should keep tests
 class TESTHelpers(ResultPage, LoginPage, HeaderPage):
     price_list = None
 

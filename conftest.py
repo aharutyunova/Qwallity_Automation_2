@@ -16,3 +16,5 @@ def logger(msg="", error=False):
         logging.error(msg)
     else:
         logging.info(msg)
+
+# Anna better to use yield in get_driver fixture and after yield close drive
