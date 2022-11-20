@@ -1,10 +1,33 @@
+There are 2 test cases:
+	test_1_filters/test_1_price
+		// Used OOP aproach to group the tests which may share the same parameter list
+		// Used pytest "mark.parametrize" decorator to run the test on different parameter list
+			The list of values is stored in testdata
+		// Test checks filtering of usd as well as amd prices
 
-We have 2 test cases, one need to search per criteria, second should check favorites.
+	test_2_favorite/test_favorite
+		// Implemented function for random selection of shown results 
 
-We keep pep8 standartd
-We are using POM and distributed 4 pages - favorite, header, login, menu, result
+Fixtures are used to organize 
+	part of logging
+	driver setup 
 
-we are keeping logger, driver should be kept in contest
+There are 4 pages
+	login		// used only to access the login popup locator. Defined it out of the PageClass
+	favorite	// is not used
+	header		// some header functions
+	result		// added functions to select different currencies and correspondingly changed price list function
+					to work with any of the types
 
-all environment crenedntails
+There are 3 helper files
+	environement	// Added timeout, as in some cases the global timeout expectancy can 
+						be different on different environments. 
+						I found it is preferable to store the value there for now
+	test_logger		// Defining the logging for the framework
+	helpers			// Organized as FunctionLib class which stores driver as attribute and 
+						provide selenium wrapper functions
 
+There is 1 tesdata file
+	testdata	// I put the name style all uppercase, that makes the test more readable
+
+PEP8 standard is kept

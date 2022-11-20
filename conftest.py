@@ -1,20 +1,20 @@
 import pytest
-from selenium import webdriver
+import os
 import logging
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome(executable_path='C:/Qwallity/Lesson24/chromedriver.exe')
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     yield driver
     driver.quit()
 
-
-
-
-
 @pytest.fixture
-def logger(msg="", error=False):
-    if error:
-        logging.error(msg)
-    else:
-        logging.info(msg)
+def log():
+    logging.info("\n\nStarting the test case...\n" +
+                 os.environ.get('PYTEST_CURRENT_TEST').split(' ')[0] + "\n")
+    yield logging
+    logging.info("\nFinished\n")
