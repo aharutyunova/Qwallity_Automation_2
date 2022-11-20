@@ -1,13 +1,8 @@
-import time
-
-from Helpers.helpers import GeneralHelpers
-from Pages import header
+from Helpers.helpers import FunctionLib
 from Pages.header import HeaderPage
-from Pages.login import LoginPage
-from Helpers import environment
+from Pages.login import login_require_popup
+from Helpers.environment import config_data as TestEnvironment
 from Pages.result import ResultPage
-from Pages.favorite import Favorite
-from Tests.some_helpers import TESTHelpers
 
 """
 
@@ -17,18 +12,14 @@ from Tests.some_helpers import TESTHelpers
 
 """
 
-def test_favorite(driver):
-    helper = GeneralHelpers(driver)
-    headerpage = HeaderPage(driver)
+def test_favorite(driver, log):
+    helper = FunctionLib(driver)
+    header = HeaderPage(driver)
     resultpage = ResultPage(driver)
-    test_helper = TESTHelpers(driver)
-    loginpage = LoginPage(driver)
-    favoritepage = Favorite(driver)
 
-    helper.go_to_page("https://www.list.am/")
-    helper.find_and_click(header.icon_lang)
-    favorite_item = resultpage.add_to_favorites()
+    helper.go_to_page(TestEnvironment["url"])
+    header.change_english()
+    random_item = helper.get_random_elem(resultpage.Locator.result_block)
+    resultpage.add_to_favorites(random_item)
 
-
-
-
+    assert helper.visibility_of(login_require_popup) == True, log.error("Required login popup is missing")

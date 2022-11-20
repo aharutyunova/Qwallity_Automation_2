@@ -1,10 +1,13 @@
 import logging
 
-logging.basicConfig(filename='test_run.txt', 
-                    filemode='a+', format='%(created)f - %(levelname)s - %(message)s',
-                    level=logging.INFO
-                    )
-
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s : %(levelname)s : %(message)s',
+    handlers=[logging.FileHandler("Runner.log"),
+              logging.StreamHandler()],
+    datefmt='%H:%M:%S',
+    force=True,
+    )
 
 def logger(msg="", error=False):
     if error:

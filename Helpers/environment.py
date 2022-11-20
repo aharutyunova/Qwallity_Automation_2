@@ -8,3 +8,4 @@ config_data_for_second_user_draft = {
     'email': 'qwallityautomation3@gmail.com',
     'password': '13072022'
 }
+global_timeout = 60

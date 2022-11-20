@@ -1,6 +1,7 @@
-search_data = "house"
-currency = "$ (USD)"
-price_min = 0
-price_max = 50
-max_price = 80
-menu_tab = 'Electronics'
+SEARCH_LINE = "house"
+MENU = 'Electronics'
+
+PRICE_FILTER =     [
+        ["usd", (50, 100)],
+        ["amd", (5000, 100000)],
+    ]
