@@ -1,34 +1,26 @@
-import time
-
-from Helpers.helpers import GeneralHelpers
-from Pages import header
+from Lib.helpers import GeneralHelpers
 from Pages.header import HeaderPage
-from Pages.login import LoginPage
-from Helpers import environment
 from Pages.result import ResultPage
-from Pages.favorite import Favorite
-from Tests.some_helpers import TESTHelpers
+# from Lib import environment
+from Lib.test_logger import logger
+from TestData.testdata import config_data
 
-"""
-
-1. Navigate to list.am
-2. Try add random item as favorite
-3. System show popup for required login
-
-"""
 
 def test_favorite(driver):
     helper = GeneralHelpers(driver)
-    headerpage = HeaderPage(driver)
+    helper.go_to_page(config_data['url'])
+
     resultpage = ResultPage(driver)
-    test_helper = TESTHelpers(driver)
-    loginpage = LoginPage(driver)
-    favoritepage = Favorite(driver)
 
-    helper.go_to_page("https://www.list.am/")
-    helper.find_and_click(header.icon_lang)
-    favorite_item = resultpage.add_to_favorites()
+    search = HeaderPage(driver)
+    search.change_english()
 
+    resultpage.add_to_favorites()
 
+    assert resultpage.popup, logger("Error", error=True)
+    logger("Result is correct!")
 
+    helper.close_browser()
 
+# Anna - you already use driver.quite() in your conftest file for driver fixture,
+# so no need to close it here

@@ -1,10 +1,11 @@
-
 We have 2 test cases, one need to search per criteria, second should check favorites.
 
-We keep pep8 standartd
-We are using POM and distributed 4 pages - favorite, header, login, menu, result
+We keep pep8 standartd.
 
-we are keeping logger, driver should be kept in contest
+We are using POM and distributed 2 pages - header.py and result.py files.
 
-all environment crenedntails
+We are keeping logger, driver should be kept in conftest.py file.
 
+All environment crenedntails are kept in testdata.py file.
+
+We keep logging in test_logger.py file, the logging results should be displayed in test_run.txt file.

@@ -2,14 +2,13 @@ import pytest
 from selenium import webdriver
 import logging
 
+
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome(executable_path='C:/Qwallity/Lesson24/chromedriver.exe')
+    driver = webdriver.Chrome(
+        executable_path='C:/Qwallity/Lesson24/chromedriver.exe')
     yield driver
     driver.quit()
-
-
-
 
 
 @pytest.fixture

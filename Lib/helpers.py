@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from Helpers.test_logger import logger
+from Lib.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -23,7 +23,12 @@ class GeneralHelpers:
         logger(f"Send '{inp_text}' to {loc[1]}")
         elem.send_keys(inp_text)
 
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):                         
+    def find(
+            self, loc,
+            timeout=20,
+            should_exist=True,
+            get_text="",
+            get_attribute=""):
         logger(f"Search element '{loc[1]}'")
         try:
             elem = WebDriverWait(self.driver, timeout).until(
@@ -44,7 +49,9 @@ class GeneralHelpers:
     def find_all(self, loc, timeout=10):
         logger(f"Search elements '{loc[1]}'")
         try:
-            elements = WebDriverWait(self.driver, timeout).until(expected_conditions.visibility_of_all_elements_located(loc), message=f"Elements '{loc}' not found!")
+            elements = WebDriverWait(self.driver, timeout).until(
+                expected_conditions.visibility_of_all_elements_located(loc),
+                message=f"Elements '{loc}' not found!")
         except Exception as e:
             logger(e)
             return False
@@ -59,11 +66,13 @@ class GeneralHelpers:
             WebDriverWait(self.driver, timeout).until_not(
                 expected_conditions.url_contains(not_page))
 
-
-
     def retrn_url(self):
         return str(self.driver.current_url)
 
     def hover_elem(self, elem):
         a = ActionChains(self.driver)
         a.move_to_element(elem).perform()
+
+    def close_browser(self):
+        if self.driver:
+            self.driver.quit()
