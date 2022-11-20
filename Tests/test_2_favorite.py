@@ -1,34 +1,19 @@
-import time
-
 from Helpers.helpers import GeneralHelpers
-from Pages import header
 from Pages.header import HeaderPage
-from Pages.login import LoginPage
-from Helpers import environment
 from Pages.result import ResultPage
-from Pages.favorite import Favorite
-from Tests.some_helpers import TESTHelpers
+from Pages.result import login_require_popup
+from Pages.result import add_to_favorite
+from Helpers.test_logger import logger
 
-"""
-
-1. Navigate to list.am
-2. Try add random item as favorite
-3. System show popup for required login
-
-"""
 
 def test_favorite(driver):
     helper = GeneralHelpers(driver)
     headerpage = HeaderPage(driver)
     resultpage = ResultPage(driver)
-    test_helper = TESTHelpers(driver)
-    loginpage = LoginPage(driver)
-    favoritepage = Favorite(driver)
 
-    helper.go_to_page("https://www.list.am/")
-    helper.find_and_click(header.icon_lang)
-    favorite_item = resultpage.add_to_favorites()
-
-
-
-
+    headerpage.change_english()
+    headerpage.click_menu_tab()
+    resultpage.add_to_favorites()
+    resultpage.find_and_click(add_to_favorite)
+    assert resultpage.find(login_require_popup), logger("Error", error=True)
+    logger("Result is correct!")
